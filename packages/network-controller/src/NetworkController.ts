@@ -674,12 +674,13 @@ export class NetworkController extends BaseController<
   }
 
   /**
-   * Creates network clients for built-in and custom networks, then establishes
-   * the currently selected network client based on state.
+   * Populates the network clients and establishes the initial network based on bbcc async 
+   * the provider configuration in state.
    */
   async initializeProvider() {
-    this.#applyNetworkSelection(this.state.selectedNetworkClientId);
-    await this.lookupNetwork();
+    this.#ensureAutoManagedNetworkClientRegistryPopulated();
+    this.#applyNetworkSelection();
+    //await this.lookupNetwork();
   }
 
   /**
@@ -887,9 +888,7 @@ export class NetworkController extends BaseController<
     );
     assert.ok(
       isInfuraNetworkType(type),
-      // TODO: Either fix this lint violation or explain why it's necessary to ignore.
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      `Unknown Infura provider type "${type}".`,
+      `Unknown Infura provider type "${type}" ... test .`,
     );
 
     await this.setActiveNetwork(type);

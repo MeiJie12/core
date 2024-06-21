@@ -75,6 +75,13 @@ export const BUILT_IN_NETWORKS = {
       blockExplorerUrl: 'https://etherscan.io',
     },
   },
+  [NetworkType.hizoco]: {
+    chainId: ChainId.hizoco,
+    ticker: NetworksTicker.hizoco,
+    rpcPrefs: {
+      blockExplorerUrl: 'https://hizoco.net:38443',//https://hizoco.net/rpc
+    },
+  },
   [NetworkType['linea-goerli']]: {
     chainId: ChainId['linea-goerli'],
     ticker: NetworksTicker['linea-goerli'],
@@ -149,6 +156,7 @@ export const CHAIN_ID_TO_ETHERS_NETWORK_NAME_MAP: Record<
   [ChainId.goerli]: BuiltInNetworkName.Goerli,
   [ChainId.sepolia]: BuiltInNetworkName.Sepolia,
   [ChainId.mainnet]: BuiltInNetworkName.Mainnet,
+  [ChainId.hizoco]:BuiltInNetworkName.Hizoco,
   [ChainId['linea-goerli']]: BuiltInNetworkName.LineaGoerli,
   [ChainId['linea-sepolia']]: BuiltInNetworkName.LineaSepolia,
   [ChainId['linea-mainnet']]: BuiltInNetworkName.LineaMainnet,

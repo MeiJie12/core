@@ -2,6 +2,7 @@
  * The names of built-in Infura networks
  */
 export const InfuraNetworkType = {
+  hizoco:'hizoco',
   mainnet: 'mainnet',
   goerli: 'goerli',
   sepolia: 'sepolia',
@@ -53,6 +54,7 @@ export function isInfuraNetworkType(
  * This includes both Infura and non-Infura networks.
  */
 export enum BuiltInNetworkName {
+  Hizoco='hizoco',
   Mainnet = 'mainnet',
   Goerli = 'goerli',
   Sepolia = 'sepolia',
@@ -68,6 +70,7 @@ export enum BuiltInNetworkName {
  * `toHex` not invoked to avoid cyclic dependency
  */
 export const ChainId = {
+  [BuiltInNetworkName.Hizoco]:'0x138e0',
   [BuiltInNetworkName.Mainnet]: '0x1', // toHex(1)
   [BuiltInNetworkName.Goerli]: '0x5', // toHex(5)
   [BuiltInNetworkName.Sepolia]: '0xaa36a7', // toHex(11155111)
@@ -79,8 +82,7 @@ export const ChainId = {
 export type ChainId = (typeof ChainId)[keyof typeof ChainId];
 
 export enum NetworksTicker {
-  // TODO: Either fix this lint violation or explain why it's necessary to ignore.
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  hizoco='HZC',
   mainnet = 'ETH',
   // TODO: Either fix this lint violation or explain why it's necessary to ignore.
   // eslint-disable-next-line @typescript-eslint/naming-convention
